@@ -54,16 +54,22 @@ const Navbar = () => {
                             {/* LOGO */}
 
                             <div className="flex flex-shrink-0 items-center ">
+                                <Link href="#/" >
                                 <img
                                     className="block h-16  lg:hidden mt-2"
                                     src={'/assets/logo/lu-logo.png'}
                                     alt="design-logo"
+                                    href="/"
+                                    cursor="pointer"
                                 />
                                 <img
                                     className="hidden h-12 w-40 lg:block mt-5"
                                     src={'/assets/logo/lu-logo.png'}
                                     alt="design-logo"
+                                    href="/"
+                                    cursor="pointer"
                                 />
+                                </Link>
                             </div>
 
                             {/* LINKS */}

@@ -1,27 +1,37 @@
 "use client"
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import { init } from "ityped";
 import { StarIcon } from "@heroicons/react/24/solid";
-
+import MainText from "./IType";
+import Marquee from "react-fast-marquee";
 const Banner = () => {
+
+  const el = useRef(null);
+  React.useEffect(() => {
+    init(el, { showCursor: false, strings: ['Nice', 'One'] });
+  }, []);
+
+
+
+
+
+
   return (
-    <div id="home-section" className="bg-lightkblue " style={{ background: "linear-gradient(to bottom, #DCDDEc, #C3E1FD)" }}>
+    <div id="home-section" className="bg-lightblue " style={{ background: "linear-gradient(to bottom, #DCDDEc, #7A8BE9)" }}>
       <div className="mx-auto max-w-7xl pt-20 sm:pb-24 px-6 " >
         <div className="grid grid-cols-1 lg:grid-cols-12 space-x-1">
           <div className="col-span-6 flex flex-col justify-evenly">
-            <div className="flex gap-2 mx-auto lg:mx-0">
-              <Image
-                src="/assets/banner/check.svg"
-                alt="check-image"
-                width={20}
-                height={20}
-              />
-              <h3 className="text-kellygreen text-sm font-semibold text-center lg:text-start">
-                Get 30% off on first enroll
-              </h3>
-            </div>
+
             <h1 className="text-midnightblue text-4xl sm:text-5xl font-semibold text-center lg:text-start lh-120 pt-5 lg:pt-0">
-              LU TRAINING & DEVELOPMENT
+              LU Training And Development
+            </h1>
+
+            <h1 className="text-[#1E4B4A] text-4xl h-24 md:h-12 sm:text-5xl font-semibold text-center lg:text-start lh-120 pt-5 lg:pt-0">
+              Upgrade Your
+              <span className="h-4" >
+                <MainText />
+              </span>
             </h1>
             <h3 className="text-charcoal text-lg font-normal text-center lg:text-start opacity-75 pt-2 lg:pt-0">
               Build skills with our courses and mentor from world-class
@@ -90,14 +100,18 @@ const Banner = () => {
 
           <div className="col-span-6 flex justify-center">
             <Image
-              src="/assets/banner/mahila.png"
+              src="/assets/banner/hero.png"
               alt="nothing"
               width={1000}
               height={805}
             />
           </div>
+
         </div>
       </div>
+      <Marquee className="mx-auto font-bold text-red-500 max-w-7xl pt-20 md:pt-10 text-xl pb-6 sm:pb-24 px-6">
+        Hurry! Limited-time offer: 50% off on buying all courses! Scroll Down to Courses Section."
+      </Marquee>
     </div>
   );
 };

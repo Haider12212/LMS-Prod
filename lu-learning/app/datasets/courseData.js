@@ -36,8 +36,8 @@ const courseData = [
     },
     ,
     {
-        heading: 'Content Writing',
-        heading2: 'SEO Optimized Writing',
+        heading: 'Content Writing', 
+        heading2: 'SEO Optimized Writing Masterclass',
         name: "LU Training and Development",
         imgSrc: '/assets/courses/content.png',
         li: 'content-writing',
@@ -54,7 +54,7 @@ const courseData = [
     },
     {
         heading: 'Canva Designing',
-        heading2: 'with Canva Pro',
+        heading2: 'with Canva Pro Masterclass',
         name: "LU Training and Development",
         imgSrc: '/assets/courses/canva.png',
         li: 'canva-designing',
@@ -71,7 +71,7 @@ const courseData = [
     },
     {
         heading: 'Graphic Desinging',
-        heading2: 'Eye Catching Posters and Brochures',
+        heading2: 'Eye Catching Posters and Brochures Masterclass',
         name: "LU Training and Development",
         imgSrc: '/assets/courses/graphic.png',
         li: 'graphic-designing',
@@ -88,7 +88,7 @@ const courseData = [
     },
     {
         heading: 'Wordpress Development',
-        heading2: 'From Zero to Hero',
+        heading2: 'From Zero to Hero Masterclass',
         name: "LU Training and Development",
         imgSrc: '/assets/courses/wordpress.png',
         banner: '/assets/coursesinfo/wordpress-development.jpeg',

@@ -18,13 +18,13 @@ const postData = [
     {
         name: "Anamata_n55",
         profession: 'Ex Graphic Designing Student',
-        comment: 'First class and last with Dr Maira Ishaq. It was amazing. Platform of learning...',
+        comment: 'First class and last with Dr Maira Ishaq. It was amazing Platform of learning had lot of fun. Thank you so much Dr Maira Ishaq...',
         imgSrc: '/assets/testimonial/female.png',
     },
     {
         name: "mahamazib",
         profession: 'Ex Canva Student',
-        comment: 'Classes with Sir Hamza are amazing. Best platform to learn...',
+        comment: 'Classes with Sir Hamza are amazing. Best platform to learn. Really satisfied. Excited for more opportunities to come. Thank you Sir Hamza...',
         imgSrc: '/assets/testimonial/female.png',
     },
     {
@@ -103,7 +103,7 @@ export default class MultipleItems extends Component {
                         {postData.map((items, i) => (
                             <div key={i}>
                                 <div className={`bg-white m-4 p-5 my-20 relative ${i % 2 ? 'middleDiv' : 'testimonial-shadow'}`}>
-                                    <div className="absolute top-[-45px] w-12">
+                                    <div className="absolute h-20 top-[-45px] w-12">
                                         <Image src={items.imgSrc} alt={items.imgSrc} width={100} height={100} className="inline-block" />
                                     </div>
                                     <h4 className='text-base font-normal text-darkgray my-4'>{items.comment}</h4>

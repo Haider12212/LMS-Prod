@@ -4,9 +4,8 @@ import React, { Component } from "react";
 import { StarIcon } from '@heroicons/react/24/solid';
 import Link from "next/link";
 import courseData from '../../datasets/courseData.js';
-
+import { useRouter } from "next/navigation";
 import Image from "next/image";
-
 
 export default class MultipleItems extends Component {
     render() {
@@ -40,6 +39,9 @@ export default class MultipleItems extends Component {
                 }
             ]
         };
+        
+
+       
 
         return (
             <div id="courses">
@@ -52,7 +54,7 @@ export default class MultipleItems extends Component {
                     <Slider {...settings}>
                         {courseData.map((items, i) => (
                             <div key={i}>
-                                <div className='bg-white m-3 px-3 pt-3 pb-12 my-20 shadow-courses rounded-2xl'>
+                                <div className='bg-white m-3 px-3 pt-3 pb-12 my-20 shadow-courses rounded-2xl h-[400] w-[1000]'>
                                     <div className="relative rounded-3xl">
                                         <Image src={items.imgSrc} alt="gaby" width={389} height={262} className="m-auto clipPath" />
                                         <div className="absolute right-5 -bottom-2 bg-ultramarine rounded-full p-6">
@@ -88,15 +90,12 @@ export default class MultipleItems extends Component {
 
                                         <hr style={{ color: "#C4C4C4" }} />
 
-                                        <div className="flex justify-between pt-6">
-                                            <div className="flex gap-4">
-                                                <Image src={'/assets/courses/book-open.svg'} alt="users" width={24} height={24} className="inline-block m-auto" />
-                                                <h3 className="text-base font-medium text-black opacity-75">{items.classes} classes</h3>
-                                            </div>
-                                            <div className="flex gap-4">
-                                                <Image src={'/assets/courses/users.svg'} alt="users" width={24} height={24} className="inline-block m-auto" />
-                                                <h3 className="text-base font-medium text-black opacity-75">{items.students} students</h3>
-                                            </div>
+                                        <div className="flex  items-center justify-between pt-6">
+                                            <Link href={"/register"}>
+                                            <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" >
+                                            Enroll Now
+                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

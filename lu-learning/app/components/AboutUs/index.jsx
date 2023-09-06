@@ -1,13 +1,23 @@
 "use client"
-import React from "react";
+import React,{useState} from "react";
 import Image from "next/image";
 import { FaFacebook, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import { useRouter } from "next/navigation";
 
 const Index = () => {
   const router = useRouter()
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleClick = () => {
-    router.push('/register')
+    setIsLoading(true);
+
+    // Simulate a registration process with a delay
+    new Promise((resolve) => setTimeout(resolve, 2000)); // Simulated delay of 2 seconds
+
+    // After registration is complete, you can navigate or perform other actions
+    router.push('/register');
+
+    setIsLoading(false);
   }
   return (
 
@@ -36,7 +46,10 @@ const Index = () => {
             <FaWhatsapp size={50} />
           </a>
         </div>
-        <button className="text-Blueviolet border-2 text-lg font-medium ml-9 py-5 px-16 transition duration-150 ease-in-out rounded-md bg-semiblueviolet hover:text-white hover:bg-[#666AA9] " onClick={handleClick}>
+        <button className="text-Blueviolet border-2 text-lg font-medium ml-9 py-5 px-16 transition duration-150 ease-in-out rounded-md bg-semiblueviolet hover:text-white hover:bg-[#666AA9] "
+        onClick={handleClick}
+        disabled={isLoading}
+        >
           Learn More
         </button>
         <div className="mt-6">
