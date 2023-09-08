@@ -35,7 +35,7 @@ const postData = [
     },
     {
         profession: 'Seo Expert',
-        name: 'Ride Rashid',
+        name: 'Rida Rashid',
         imgSrc: '/assets/mentor/06.png',
     },
 
