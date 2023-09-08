@@ -42,13 +42,26 @@ const postData = [
 ]
 
 // CAROUSEL SETTINGS
-
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
             className={className}
-            style={{ ...style, display: "flex", justifyContent: "center", position: 'absolute', alignItems: "center", background: "#D5EFFA", padding: "28px", borderRadius: "30px", border: "1px solid #1A21BC" }}
+            style={{
+                ...style,
+                position: "absolute",
+                top: "50%",
+                 // Adjust the right position as needed
+                marginRight: "-100px",
+                display: "flex",
+                transform: "translateY(450%)",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "#8493E9",
+                padding: "28px",
+                borderRadius: "50%",
+
+            }}
             onClick={onClick}
         />
     );
@@ -59,7 +72,21 @@ function SamplePrevArrow(props) {
     return (
         <div
             className={className}
-            style={{ ...style, display: "flex", justifyContent: "center", alignItems: "center", background: "#D5EFFA", padding: "28px", borderRadius: "30px", border: "1px solid #1A21BC" }}
+            style={{
+                ...style,
+                color: "black",
+                position: "absolute",
+                marginTop: "255px",
+                marginLeft: "-100px",
+                transform: "translateX(-2000%)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "#8493E9",
+                padding: "28px",
+                borderRadius: "50%",
+
+            }}
             onClick={onClick}
         />
     );
@@ -76,7 +103,7 @@ export default class MultipleItems extends Component {
             slidesToShow: 3,
             // centerMode: true,
             slidesToScroll: 1,
-            arrows: false,
+            arrows: true,
             autoplay: true,
             speed: 400,
             nextArrow: <SampleNextArrow className={undefined} style={undefined} onClick={undefined} />,
@@ -99,7 +126,8 @@ export default class MultipleItems extends Component {
                         slidesToShow: 2,
                         slidesToScroll: 1,
                         infinite: true,
-                        dots: false
+                        dots: false,
+                        arrows: false,
                     }
                 },
                 {
@@ -108,7 +136,8 @@ export default class MultipleItems extends Component {
                         slidesToShow: 1,
                         slidesToScroll: 1,
                         infinite: true,
-                        dots: false
+                        dots: false,
+                        arrows: false,
                     }
                 }
             ]

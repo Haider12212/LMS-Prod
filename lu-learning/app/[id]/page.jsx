@@ -1,13 +1,34 @@
 "use client";
-import React, {useState} from "react";
-import { FaStar, FaMoneyBill } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaStar } from "react-icons/fa";
 import Image from "next/image";
 import courseData from "../datasets/courseData.js";
 import { useRouter, useParams } from "next/navigation";
+import Modal from 'react-modal';
+
+export async function generateMetadata({ params }) {
+  const { id } = params;
+  const course = courseData.find((item) => item.li === id);
+  return {
+    title: course.heading,
+    description: course.desc,
+    image: course.banner,
+  };
+}
 
 const page = () => {
   const [loading, setLoading] = useState(false);
   const Params = useParams();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const { id } = Params;
 
   let course;
@@ -55,16 +76,18 @@ const page = () => {
       <div className="mx-auto max-w-[90rem] sm:py-8 px-4 lg:px-8 ">
         <div className="md:flex">
           <div className="md:flex-shrink-0">
-            <Image
-              className="h-full w-full object-cover "
-              width={500}
-              height={500}
-              src={course.banner}
-              alt="Course"
-            />
+            <div onClick={openModal} className="cursor-pointer">
+              <Image
+                className="h-full w-full object-cover"
+                width={500}
+                height={500}
+                src={course.banner}
+                alt="Course"
+              />
+            </div>
           </div>
           <div className="p-8">
-            <div className="uppercase tracking-wide text-xl font-bold text-indigo-500 font-semibold">
+            <div className="uppercase tracking-wide text-xl font-bold text-indigo-500">
               {course.heading}
             </div>
             <div className="h-50">
@@ -163,11 +186,36 @@ const page = () => {
                     <p className="text-gray-600">{course.mentorDescription}</p>
                   </div>
                 </div>
+                <Modal
+                  isOpen={isModalOpen}
+                  onRequestClose={closeModal}
+                  contentLabel="Course Banner"
+                  ariaHideApp={false}
+                  className="modal-content"
+                  overlayClassName="modal-overlay"
+                  portalClassName="modal-portal"
+                >
+                  {/* Close button */}
+                  <button className="modal-close text-white" onClick={closeModal}>
+                    &times;
+                  </button>
+
+                  {/* Image */}
+                  <Image
+                    className="h-full w-full object-contain"
+                    height={1000}
+                    width={1000}
+                    src={course.banner}
+                    alt="Course"
+                  />
+                </Modal>
               </div>
             </div>
           </div>
         </div>
+
       </div>
+
     </>
   );
 };

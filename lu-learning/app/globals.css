@@ -171,6 +171,20 @@ hr {
     border-right-color: transparent;
 }
 
+.modal-overlay {
+    @apply fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50;
+}
+
+/* CSS for the modal content */
+.modal-content {
+    @apply bg-white rounded-lg p-4 max-w-3xl mx-auto;
+}
+
+/* CSS for the close button */
+.modal-close {
+    @apply absolute top-2 right-2 text-2xl text-gray-500 cursor-pointer;
+}
+
 .bg-imagee {
     background-image: url('/assets/newsletter/bgFile.png');
     background-size: cover;

@@ -6,6 +6,56 @@ import Link from "next/link";
 import courseData from '../../datasets/courseData.js';
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{
+                ...style,
+                position: "absolute",
+                top: "50%",
+                 // Adjust the right position as needed
+                marginRight: "-100px",
+                display: "flex",
+                transform: "translateY(850%)",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "#8493E9",
+                padding: "28px",
+                borderRadius: "50%",
+
+            }}
+            onClick={onClick}
+        />
+    );
+}
+
+function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{
+                ...style,
+                color: "black",
+                position: "absolute",
+                marginTop: "470px",
+                marginLeft: "-100px",
+                transform: "translateX(-2000%)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "#8493E9",
+                padding: "28px",
+                borderRadius: "50%",
+
+            }}
+            onClick={onClick}
+        />
+    );
+}
+
 
 export default class MultipleItems extends Component {
     render() {
@@ -14,9 +64,11 @@ export default class MultipleItems extends Component {
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 2,
-            arrows: false,
+            arrows: true,
             autoplay: false,
             speed: 500,
+            nextArrow: <SampleNextArrow className={undefined} style={undefined} onClick={undefined} />,
+            prevArrow: <SamplePrevArrow className={undefined} style={undefined} onClick={undefined} />,
             cssEase: "linear",
             responsive: [
                 {
@@ -34,7 +86,8 @@ export default class MultipleItems extends Component {
                         slidesToShow: 1,
                         slidesToScroll: 1,
                         infinite: true,
-                        dots: false
+                        dots: false,
+                        arrows: false
                     }
                 }
             ]
@@ -57,9 +110,7 @@ export default class MultipleItems extends Component {
                                 <div className='bg-white m-3 px-3 pt-3 pb-12 my-20 shadow-courses rounded-2xl h-[400] w-[1000]'>
                                     <div className="relative rounded-3xl">
                                         <Image src={items.imgSrc} alt="gaby" width={389} height={262} className="m-auto clipPath" />
-                                        <div className="absolute right-5 -bottom-2 bg-ultramarine rounded-full p-6">
-                                            <h3 className="text-white uppercase text-center text-sm font-medium">best <br /> seller</h3>
-                                        </div>
+                                        
                                     </div>
                                     <div className="px-3">
                                         <Link href={`/${items.li}`}>
@@ -84,7 +135,7 @@ export default class MultipleItems extends Component {
                                                 </div>
                                             </div>
                                             <div>
-                                                <h3 className="text-3xl font-medium">Rs.{items.price}</h3>
+                                                <h3 className=" sm:text-xl font-medium md:text-2xl lg:text-3xl ">Rs.{items.price}</h3>
                                             </div>
                                         </div>
 

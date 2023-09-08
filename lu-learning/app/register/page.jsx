@@ -7,6 +7,12 @@ import emailjs from 'emailjs-com';
 import { useRouter } from 'next/navigation';
 import { get } from "https";
 
+export const metadata = {
+    title: 'Registration for Course',
+    description: 'LU Training and Development provides online courses like freelancig and designing and cheaper price than every other institute in market.',
+}
+
+
 const page = () => {
     const [loading, setLoading] = useState(false);
 
