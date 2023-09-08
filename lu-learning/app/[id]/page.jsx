@@ -6,15 +6,7 @@ import courseData from "../datasets/courseData.js";
 import { useRouter, useParams } from "next/navigation";
 import Modal from 'react-modal';
 
-export async function generateMetadata({ params }) {
-  const { id } = params;
-  const course = courseData.find((item) => item.li === id);
-  return {
-    title: course.heading,
-    description: course.desc,
-    image: course.banner,
-  };
-}
+
 
 const page = () => {
   const [loading, setLoading] = useState(false);
